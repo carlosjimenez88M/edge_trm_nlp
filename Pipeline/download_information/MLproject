@@ -1,0 +1,36 @@
+name: download_information_artifact
+
+conda_env: conda.yml
+
+entry_points:
+  main:
+    parameters:
+      timezone:
+        description: Time Zone Project
+        type: str
+      url_news:
+        description: Google News url
+        type: uri
+      save_directory:
+        description: Storage Disk for this project
+        type: str
+      artifact_name:
+        description: Artifact Name
+        type: str
+    command: >
+      python main.py --timezone {timezone} \
+                     --url_news {url_news} \
+                     --save_directory {save_directory} \
+                     --artifact_name {artifact_name}
+
+  dolar:
+    parameters:
+      url_dolar:
+        description: URL of the page to scrape the exchange rate from
+        type: str
+      save_directory:
+        description: Directory to save the Parquet file
+        type: str
+    command: >
+      python dolar.py --url_dolar {url_dolar} \
+                      --save_directory {save_directory}

@@ -1,0 +1,15 @@
+name: download_news
+channels :
+  - conda-forge
+  - defaults
+dependencies:
+  - requests=2.31.0
+  - pandas=2.2.2
+  - urllib3=2.2.1
+  - pip=24.0
+  - pip:
+      - beautifulsoup4==4.12.3
+      - html5lib
+      - pyarrow
+      - fastparquet
+      - pytz==2024.1
