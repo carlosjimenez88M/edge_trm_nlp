@@ -5,4 +5,4 @@ data:
   url_dolar: https://www.larepublica.co/indicadores-economicos/mercado-cambiario/dolar
   url_news: https://news.google.com/topics/CAAqLAgKIiZDQkFTRmdvSUwyMHZNRFZxYUdjU0JtVnpMVFF4T1JvQ1EwOG9BQVAB?hl=es-419&gl=CO&ceid=CO%3Aes-419
   timezone: America/Bogota
-  save_directory: ./
+  save_directory: /mnt/external/Raspberry/news_nlp_project

@@ -1,7 +1,7 @@
 name: edge_trm_nlp
 channels:
   - defaults
-  - conda-force
+  - conda-forge
 dependencies:
   - openssl=3.0.14
   - pip=24.0
@@ -83,7 +83,7 @@ dependencies:
       - markupsafe==2.1.5
       - matplotlib==3.9.0
       - mdurl==0.1.2
-      - mlflow==2.13.2
+      - mlflow
       - multidict==6.0.5
       - networkx==3.3
       - numpy==1.26.4
@@ -98,7 +98,7 @@ dependencies:
       - pillow==10.3.0
       - platformdirs==3.11.0
       - prompt-toolkit==3.0.47
-      - protobuf==5.27.1
+      - protobuf
       - psutil==5.9.8
       - pyarrow==15.0.2
       - pycparser==2.22

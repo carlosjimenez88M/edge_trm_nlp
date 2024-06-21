@@ -10,6 +10,7 @@ import logging
 import argparse
 import os
 
+
 # Logger Configuration ---------------
 log_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), '../logs'))
 os.makedirs(log_dir, exist_ok=True)
@@ -69,9 +70,10 @@ def go(args):
         print(df)
 
         current_date_str = current_datetime.strftime('%Y-%m-%d')
-        filename = f'{current_date_str}_exchange_rate.parquet'
+        filename = f'{args.save_directory}/{current_date_str}_exchange_rate.parquet'
 
         save_to_parquet_file(df, args, filename)
+	
 
     except requests.exceptions.RequestException as e:
         logger.error(f'Error fetching the URL content: {e}')
@@ -91,3 +93,4 @@ if __name__ == "__main__":
                         help='Directory to save the Parquet file')
     args = parser.parse_args()
     go(args)
+
