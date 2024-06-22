@@ -12,7 +12,7 @@ jobs:
     - name: Set up Python
       uses: actions/setup-python@v2
       with:
-        python-version: '3.10'
+        python-version: '3.8'  # Ajusta según la versión que necesites
 
     - name: Cache Conda
       uses: actions/cache@v2
@@ -47,9 +47,9 @@ jobs:
           conda activate edge_trm_nlp
         fi
 
-    - name: Run Script
+    - name: Run MLflow Project
       run: |
         source ~/conda/etc/profile.d/conda.sh
         conda activate edge_trm_nlp
-        chmod +x Pipeline/run.sh
-        ./Pipeline/run.sh
+        export HYDRA_FULL_ERROR=1
+        mlflow run Pipeline/download_information -e main 
