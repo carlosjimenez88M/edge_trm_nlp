@@ -35,13 +35,21 @@ jobs:
         conda config --set always_yes yes --set changeps1 no
         conda info -a
 
-    - name: Create environment
+    - name: Create or Update Environment
       run: |
         source ~/conda/etc/profile.d/conda.sh
-        conda env create -f Pipeline/conda.yml
-        conda activate edge_trm_nlp
+        if conda env list | grep edge_trm_nlp; then
+          echo "Environment edge_trm_nlp already exists"
+          conda activate edge_trm_nlp
+          conda env update -f Pipeline/conda.yml --prune
+        else
+          conda env create -f Pipeline/conda.yml
+          conda activate edge_trm_nlp
+        fi
 
     - name: Run Script
       run: |
+        source ~/conda/etc/profile.d/conda.sh
+        conda activate edge_trm_nlp
         chmod +x Pipeline/run.sh
         ./Pipeline/run.sh
