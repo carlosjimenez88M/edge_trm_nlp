@@ -1,0 +1,15 @@
+artifact_uri: file:///Users/danieljimenez/Documents/Projects/Personal_Projects/edge_trm_nlp/mlruns/0/9e87e47e554b41048f18bd0337a9f823/artifacts
+end_time: 1719026511413
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 9e87e47e554b41048f18bd0337a9f823
+run_name: bald-calf-168
+run_uuid: 9e87e47e554b41048f18bd0337a9f823
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1719026506079
+status: 4
+tags: []
+user_id: danieljimenez
