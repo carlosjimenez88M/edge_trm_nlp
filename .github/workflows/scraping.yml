@@ -52,5 +52,11 @@ jobs:
         source ~/conda/etc/profile.d/conda.sh
         conda activate edge_trm_nlp
         export HYDRA_FULL_ERROR=1
-        mlflow run Pipeline/download_information -e main -P timezone=America/Bogota -P url_news=https://news.google.com/topics/CAAqLAgKIiZDQkFTRmdvSUwyMHZNRFZxYUdjU0JtVnpMVFF4T1JvQ1EwOG9BQVAB?hl=es-419&gl=CO&ceid=CO%3Aes-419 -P save_directory=data/ -P artifact_name=News_Scraping
-        mlflow run Pipeline/download_information -e dolar -P url_dolar=https://www.portafolio.co/indicadores-economicos -P save_directory=data/
+        mlflow run Pipeline/download_information -e main \
+            -P timezone=America/Bogota \
+            -P url_news=https://news.google.com/topics/CAAqLAgKIiZDQkFTRmdvSUwyMHZNRFZxYUdjU0JtVnpMVFF4T1JvQ1EwOG9BQVAB?hl=es-419&gl=CO&ceid=CO%3Aes-419 \
+            -P save_directory=data/ \
+            -P artifact_name=News_Scraping
+        mlflow run Pipeline/download_information -e dolar \
+            -P url_dolar=https://www.portafolio.co/indicadores-economicos \
+            -P save_directory=data/
