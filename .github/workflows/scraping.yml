@@ -12,7 +12,7 @@ jobs:
     - name: Set up Python
       uses: actions/setup-python@v2
       with:
-        python-version: '3.10'
+        python-version: '3.8'  # Ajusta según la versión que necesites
 
     - name: Cache Conda
       uses: actions/cache@v2
@@ -36,8 +36,11 @@ jobs:
         conda env create -f Pipeline/conda.yml
         conda activate edge_trm_nlp
 
+    - name: Print Working Directory
+      run: ls -la Pipeline/download_information
+
     - name: Run Main Script
       run: |
         source ~/conda/etc/profile.d/conda.sh
         conda activate edge_trm_nlp
-        python Pipeline/main.py  
+        HYDRA_FULL_ERROR=1 python Pipeline/main.py
