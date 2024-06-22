@@ -1,4 +1,4 @@
-name: Python application
+name: CI
 
 on: [push, pull_request]
 
@@ -8,13 +8,36 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
+
     - name: Set up Python
       uses: actions/setup-python@v2
       with:
-        python-version: '3.x'
-    - name: Install dependencies
+        python-version: '3.`0'
+
+    - name: Cache Conda
+      uses: actions/cache@v2
+      with:
+        path: ~/conda
+        key: conda-${{ runner.os }}-${{ hashFiles('**/conda.yml') }}
+        restore-keys: conda-${{ runner.os }}-
+
+    - name: Install Conda
       run: |
-        python -m pip install --upgrade pip
-    - name: Run script
+        wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh -O miniconda.sh
+        bash miniconda.sh -b -p ~/conda
+        source ~/conda/etc/profile.d/conda.sh
+        conda init bash
+        conda config --set always_yes yes --set changeps1 no
+        conda info -a
+
+    - name: Create environment
       run: |
-        python test.py
+        source ~/conda/etc/profile.d/conda.sh
+        conda env create -f Pipeline/conda.yml
+        conda activate edge_trm_nlp
+
+    - name: Run Main Script
+      run: |
+        source ~/conda/etc/profile.d/conda.sh
+        conda activate edge_trm_nlp
+        python Pipeline/main.py  
