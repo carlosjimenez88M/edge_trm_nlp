@@ -11,7 +11,8 @@ import argparse
 import os
 
 
-# Logger Configuration ---------------
+#Logger Configuration ---------------
+
 log_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), '../logs'))
 os.makedirs(log_dir, exist_ok=True)
 
@@ -49,10 +50,10 @@ def go(args):
         logger.info('Successfully fetched the URL content.')
 
         soup = BeautifulSoup(r.text, 'html5lib')
-        dolar = soup.find('span', class_='price')
+        dolar = soup.find('div', class_='valores trm')
 
         if dolar:
-            exchange_rate = dolar.get_text().strip()
+            exchange_rate = dolar.get_text(strip=True).replace('TRM','')
             logger.info(f'Exchange Rate extracted: {exchange_rate}')
         else:
             exchange_rate = None
@@ -73,7 +74,7 @@ def go(args):
         filename = f'{args.save_directory}/{current_date_str}_exchange_rate.parquet'
 
         save_to_parquet_file(df, args, filename)
-	
+
 
     except requests.exceptions.RequestException as e:
         logger.error(f'Error fetching the URL content: {e}')
@@ -93,4 +94,5 @@ if __name__ == "__main__":
                         help='Directory to save the Parquet file')
     args = parser.parse_args()
     go(args)
+
 
