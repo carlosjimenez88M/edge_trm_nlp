@@ -14,7 +14,7 @@ logging.basicConfig(
     filename=os.path.join(log_dir, 'main.log'),
     level=logging.INFO,
     filemode='w',
-    format='%(name)s - %(levelname)s - %(message)s')
+    format='%(name)s - %(levellevel)- %(message)s')
 
 logger = logging.getLogger()
 
@@ -63,7 +63,7 @@ def go(config: DictConfig):
     root_path = hydra.utils.get_original_cwd()
 
     _ = mlflow.run(
-        f"file://{os.path.join(root_path, 'Pipeline/download_information')}",
+        os.path.join(root_path, "download_information"),
         "main",
         parameters={
             "timezone": config["data"]["timezone"],
@@ -74,7 +74,7 @@ def go(config: DictConfig):
     )
 
     _ = mlflow.run(
-        f"file://{os.path.join(root_path, 'Pipeline/download_information')}",
+        os.path.join(root_path, "download_information"),
         "dolar",
         parameters={
             "url_dolar": config["data"]["url_dolar"],
