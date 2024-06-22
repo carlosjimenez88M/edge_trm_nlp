@@ -18,7 +18,7 @@ jobs:
       uses: actions/cache@v2
       with:
         path: ~/conda
-        key: conda-${{ runner.os }}-${{ hashFiles('**/conda.yml') }}
+        key: conda-${{ runner.os }}-${{ hashFiles('**/Pipeline/conda.yml') }}
         restore-keys: conda-${{ runner.os }}-
 
     - name: Install Conda
@@ -36,11 +36,10 @@ jobs:
         conda env create -f Pipeline/conda.yml
         conda activate edge_trm_nlp
 
-    - name: Print Working Directory
-      run: ls -la Pipeline/download_information
-
     - name: Run Main Script
+      env:
+        HYDRA_FULL_ERROR: 1
       run: |
         source ~/conda/etc/profile.d/conda.sh
         conda activate edge_trm_nlp
-        HYDRA_FULL_ERROR=1 python Pipeline/main.py
+        python Pipeline/main.py
