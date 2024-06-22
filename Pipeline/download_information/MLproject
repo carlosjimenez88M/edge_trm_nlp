@@ -27,10 +27,11 @@ entry_points:
     parameters:
       url_dolar:
         description: URL of the page to scrape the exchange rate from
-        type: str
+        type: uri
       save_directory:
         description: Directory to save the Parquet file
         type: str
     command: >
       python dolar.py --url_dolar {url_dolar} \
                       --save_directory {save_directory}
+

@@ -2,7 +2,8 @@ main:
   project_name: edge_trm_nlp
   experiment_name: dev
 data:
-  url_dolar: https://www.larepublica.co/indicadores-economicos/mercado-cambiario/dolar
+  url_dolar: https://www.portafolio.co/indicadores-economicos
   url_news: https://news.google.com/topics/CAAqLAgKIiZDQkFTRmdvSUwyMHZNRFZxYUdjU0JtVnpMVFF4T1JvQ1EwOG9BQVAB?hl=es-419&gl=CO&ceid=CO%3Aes-419
   timezone: America/Bogota
-  save_directory: ./
+  save_directory: ../../data
+    #/mnt/external/Raspberry/news_nlp_project
