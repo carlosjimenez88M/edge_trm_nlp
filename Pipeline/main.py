@@ -14,9 +14,10 @@ logging.basicConfig(
     filename=os.path.join(log_dir, 'main.log'),
     level=logging.INFO,
     filemode='w',
-    format='%(name)s - %(levellevel)- %(message)s')
+    format='%(name)s - %(levelname)s - %(message)s')
 
 logger = logging.getLogger()
+
 
 def clean_conda_envs():
     try:
@@ -39,7 +40,7 @@ def clean_conda_envs():
             if env == "edge_trm_nlp":
                 logger.info(f"Skipping removal of protected environment: {env}")
                 continue
-            
+
             if env in current_env:
                 logger.info(f"Skipping removal of current active environment: {env}")
                 continue
@@ -56,12 +57,13 @@ def clean_conda_envs():
     except Exception as e:
         logger.error(f"Error while listing conda environments: {e}")
 
+
 @hydra.main(config_path=".", config_name='config', version_base=None)
 def go(config: DictConfig):
     root_path = hydra.utils.get_original_cwd()
 
     _ = mlflow.run(
-        os.path.join(root_path, "download_information"),
+        f"file://{os.path.join(root_path, 'Pipeline/download_information')}",
         "main",
         parameters={
             "timezone": config["data"]["timezone"],
@@ -72,7 +74,7 @@ def go(config: DictConfig):
     )
 
     _ = mlflow.run(
-        os.path.join(root_path, "download_information"),
+        f"file://{os.path.join(root_path, 'Pipeline/download_information')}",
         "dolar",
         parameters={
             "url_dolar": config["data"]["url_dolar"],
@@ -81,6 +83,7 @@ def go(config: DictConfig):
     )
 
     clean_conda_envs()
+
 
 if __name__ == "__main__":
     go()
