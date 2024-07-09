@@ -47,7 +47,7 @@ jobs:
           conda activate edge_trm_nlp
         fi
 
-    - name: Run MLflow Project - Part 1
+    - name: Run MLflow Project 
       run: |
         source ~/conda/etc/profile.d/conda.sh
         conda activate edge_trm_nlp

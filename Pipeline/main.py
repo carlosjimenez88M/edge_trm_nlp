@@ -14,10 +14,10 @@ logging.basicConfig(
     filename=os.path.join(log_dir, 'main.log'),
     level=logging.INFO,
     filemode='w',
-    format='%(name)s - %(levellevel)- %(message)s')
+    format='%(name)s - %(levelname)s - %(message)s'
+)
 
 logger = logging.getLogger()
-
 
 def clean_conda_envs():
     try:
@@ -80,6 +80,13 @@ def go(config: DictConfig):
             "url_dolar": config["data"]["url_dolar"],
             "save_directory": config["data"]["save_directory"],
         },
+    )
+
+    # Run the clean_information project
+    _ = mlflow.run(
+        os.path.join(root_path, "Clean_Information"),
+        "main",
+        parameters={}
     )
 
     clean_conda_envs()

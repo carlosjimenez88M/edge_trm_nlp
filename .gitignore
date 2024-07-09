@@ -177,3 +177,41 @@ logs/
 
 # Conda
 .conda/
+# Exclude MLflow artifacts
+mlruns/
+
+# Exclude logs
+logs/
+*.log
+
+# Exclude Python cache files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Exclude Jupyter Notebook checkpoints
+.ipynb_checkpoints
+
+# Exclude temporary files and directories
+*.tmp
+*.temp
+*.swp
+*.swo
+*.bak
+
+# Exclude data_clean and other temporary data files
+data_clean/
+data/tmp/
+data/**/*.tmp
+
+# Include the actual data files in the 'data' directory
+!data/*.parquet
+!data/**/*.parquet
+
+# Exclude virtual environment directories
+env/
+venv/
+.venv/
+
+# Exclude DS_Store files on macOS
+.DS_Store
