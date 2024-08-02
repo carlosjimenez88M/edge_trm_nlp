@@ -13,3 +13,4 @@ dependencies:
       - pyarrow
       - fastparquet
       - pytz==2024.1
+      - omegaconf

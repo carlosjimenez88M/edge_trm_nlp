@@ -2,26 +2,15 @@ name: download_information_artifact
 
 conda_env: conda.yml
 
+name: cnn_news_extractor
+
+conda_env: conda.yml
+
 entry_points:
   main:
     parameters:
-      timezone:
-        description: Time Zone Project
-        type: str
-      url_news:
-        description: Google News url
-        type: uri
-      save_directory:
-        description: Storage Disk for this project
-        type: str
-      artifact_name:
-        description: Artifact Name
-        type: str
-    command: >
-      python main.py --timezone {timezone} \
-                     --url_news {url_news} \
-                     --save_directory {save_directory} \
-                     --artifact_name {artifact_name}
+      base_url: {type: str, default: "https://cnnespanol.cnn.com/"}
+    command: "python main.py --base_url {base_url}"
 
   dolar:
     parameters:

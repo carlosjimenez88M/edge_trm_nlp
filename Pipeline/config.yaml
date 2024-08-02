@@ -3,7 +3,6 @@ main:
   experiment_name: dev
 data:
   url_dolar: https://www.portafolio.co/indicadores-economicos
-  url_news: https://news.google.com/topics/CAAqLAgKIiZDQkFTRmdvSUwyMHZNRFZxYUdjU0JtVnpMVFF4T1JvQ1EwOG9BQVAB?hl=es-419&gl=CO&ceid=CO%3Aes-419
-  timezone: America/Bogota
-  save_directory: ../../data
+  base_url: https://cnnespanol.cnn.com/
+  save_directory: ../../data/raw
     #/mnt/external/Raspberry/news_nlp_project
