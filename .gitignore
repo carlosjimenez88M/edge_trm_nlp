@@ -198,6 +198,8 @@ __pycache__/
 *.swp
 *.swo
 *.bak
+*.hydra
+*.parquet
 
 # Exclude data_clean and other temporary data files
 data_clean/
@@ -212,6 +214,7 @@ data/**/*.tmp
 env/
 venv/
 .venv/
+
 
 # Exclude DS_Store files on macOS
 .DS_Store
