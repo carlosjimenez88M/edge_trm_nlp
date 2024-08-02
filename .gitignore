@@ -200,6 +200,8 @@ __pycache__/
 *.bak
 *.hydra
 *.parquet
+*.log
+outputs/
 
 # Exclude data_clean and other temporary data files
 data_clean/
@@ -209,7 +211,7 @@ data/**/*.tmp
 # Include the actual data files in the 'data' directory
 !data/*.parquet
 !data/**/*.parquet
-
+*.parquet
 # Exclude virtual environment directories
 env/
 venv/
