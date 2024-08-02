@@ -1,7 +1,0 @@
-name: Clean_Information
-
-conda_env: conda.yml
-
-entry_points:
-  main:
-    command: "python main.py"

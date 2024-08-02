@@ -57,7 +57,6 @@ def clean_conda_envs():
     except Exception as e:
         logger.error(f"Error while listing conda environments: {e}")
 
-
 @hydra.main(config_path=".", config_name='config', version_base=None)
 def go(config: DictConfig):
     root_path = hydra.utils.get_original_cwd()
@@ -66,10 +65,8 @@ def go(config: DictConfig):
         os.path.join(root_path, "download_information"),
         "main",
         parameters={
-            "timezone": config["data"]["timezone"],
-            "url_news": config["data"]["url_news"],
+            "base_url": config["data"]["base_url"],
             "save_directory": config["data"]["save_directory"],
-            "artifact_name": "News_Scraping"
         },
     )
 
@@ -82,15 +79,8 @@ def go(config: DictConfig):
         },
     )
 
-    # Run the clean_information project
-    _ = mlflow.run(
-        os.path.join(root_path, "Clean_Information"),
-        "main",
-        parameters={}
-    )
 
     clean_conda_envs()
-
 
 if __name__ == "__main__":
     go()
