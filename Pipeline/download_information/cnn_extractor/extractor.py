@@ -1,6 +1,6 @@
 '''
 Main Class to Scrap information to CNN in Spanish
-@ Author: Carlos Daniel Jiménez Martinez
+@ Author: Carlos Daniel Jiménez Martínez
 @ 2024
 '''
 

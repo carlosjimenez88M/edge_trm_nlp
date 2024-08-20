@@ -2,9 +2,8 @@ name: download_information_artifact
 
 conda_env: conda.yml
 
-name: cnn_news_extractor
 
-conda_env: conda.yml
+
 
 entry_points:
   main:
@@ -23,4 +22,5 @@ entry_points:
     command: >
       python dolar.py --url_dolar {url_dolar} \
                       --save_directory {save_directory}
+
 

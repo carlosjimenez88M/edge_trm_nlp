@@ -1,3 +1,5 @@
+#!/opt/miniconda3/envs/edge_trm_nlp/bin/python
+
 '''
 Orchestrator of the News Scraping Model
 Schema that generates the news database at a high level

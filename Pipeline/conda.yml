@@ -1,7 +1,7 @@
-name: edge_trm_nlp
+name: edge_trm_nlp_test
 channels:
-  - defaults
   - conda-forge
+  - defaults
 dependencies:
   - openssl=3.0.14
   - pip=24.0

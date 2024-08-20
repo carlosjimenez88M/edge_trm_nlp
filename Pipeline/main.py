@@ -79,6 +79,15 @@ def go(config: DictConfig):
         },
     )
 
+    _= mlflow.run(
+        os.path.join(root_path,'download_information/infobae_extractor'),
+        'main',
+        parameters={
+            "url":config['data']['url'],
+            "save_directory": config["data"]["save_directory"]
+        }
+    )
+
 
     clean_conda_envs()
 

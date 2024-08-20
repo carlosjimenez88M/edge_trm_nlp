@@ -95,3 +95,9 @@ class CNNNewsExtractor:
 base_url = "https://cnnespanol.cnn.com/"
 extractor = CNNNewsExtractor(base_url)
 news_df = extractor.cnn_news()
+
+
+
+
+#==========================================#
+# Infobae
