@@ -61,6 +61,8 @@ def clean_conda_envs():
 def go(config: DictConfig):
     root_path = hydra.utils.get_original_cwd()
 
+    logger.info("Starting to run 'download_information:main' with parameters:")
+    logger.info(f"base_url: {config['data']['base_url']}, save_directory: {config['data']['save_directory']}")
     _ = mlflow.run(
         os.path.join(root_path, "download_information"),
         "main",
@@ -70,7 +72,9 @@ def go(config: DictConfig):
         },
     )
 
-    _ = mlflow.run(
+    logger.info("Starting to run 'download_information:dolar' with parameters:")
+    logger.info(f"url_dolar: {config['data']['url_dolar']}, save_directory: {config['data']['save_directory']}")
+    dolar_run_result = mlflow.run(
         os.path.join(root_path, "download_information"),
         "dolar",
         parameters={
@@ -78,16 +82,20 @@ def go(config: DictConfig):
             "save_directory": config["data"]["save_directory"],
         },
     )
+    logger.info(f"dolar_run_result: {dolar_run_result}")
 
-    _= mlflow.run(
-        os.path.join(root_path,'download_information/infobae_extractor'),
-        'main',
+    logger.info("Starting to run 'infobae_extractor:main' with parameters:")
+    logger.info(f"url: {config['data']['url']}, save_directory: {config['data']['save_directory']}")
+
+    infobae_run_result = mlflow.run(
+        os.path.join(root_path, 'download_information'),
+        'infobae',
         parameters={
-            "url":config['data']['url'],
+            "url": config['data']['url'],
             "save_directory": config["data"]["save_directory"]
         }
     )
-
+    logger.info(f"infobae_run_result: {infobae_run_result}")
 
     clean_conda_envs()
 

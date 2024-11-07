@@ -8,12 +8,12 @@ This script scrapes articles from Infobae and stores the data in a Parquet file.
 import argparse
 import pandas as pd
 from datetime import datetime
-from utils import initial_validation, extract_titles, extract_urls, get_content, get_date, get_author
+from infobae_extractor.utils import initial_validation, extract_titles, extract_urls, get_content, get_date, get_author
 import logging
 
 # Configuración del logger
 logging.basicConfig(
-    filename='../../logs/infobae_download_data.log',
+    filename='../logs/infobae_download_data.log',
     level=logging.INFO,
     filemode='w',
     format='%(name)s - %(levelname)s - %(message)s'

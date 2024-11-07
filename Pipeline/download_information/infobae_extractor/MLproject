@@ -1,8 +1,0 @@
-name: infobae_scraper
-conda_env: ../conda.yml
-entry_points:
-  main:
-    parameters:
-      url: {type: str, default: "https://www.infobae.com/colombia/"}
-      save_directory: {type: str, default: "../data/raw"}
-    command: "python main.py --url={url} --save_directory={save_directory}"

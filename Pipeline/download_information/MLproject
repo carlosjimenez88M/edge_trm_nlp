@@ -2,14 +2,18 @@ name: download_information_artifact
 
 conda_env: conda.yml
 
-
-
-
 entry_points:
   main:
     parameters:
-      base_url: {type: str, default: "https://cnnespanol.cnn.com/"}
-    command: "python main.py --base_url {base_url}"
+      base_url:
+        description: URL of the base page to scrape information from
+        type: uri
+      save_directory:
+        description: Directory to save the extracted data
+        type: str
+    command: >
+      python main.py --base_url {base_url} \
+                     --save_directory {save_directory}
 
   dolar:
     parameters:
@@ -23,4 +27,14 @@ entry_points:
       python dolar.py --url_dolar {url_dolar} \
                       --save_directory {save_directory}
 
-
+  infobae:
+    parameters:
+      url:
+        description: URL of the page to scrape news from
+        type: uri
+      save_directory:
+        description: Directory to save the extracted data
+        type: str
+    command: >
+      python infobae.py --url {url} \
+                        --save_directory {save_directory}

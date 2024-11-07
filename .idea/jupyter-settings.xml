@@ -7,7 +7,7 @@
           <value>
             <JupyterConnectionParameters>
               <option name="managed" value="true" />
-              <option name="sdkHomePath" value="$USER_HOME$/opt/anaconda3/envs/edge_trm_nlp/bin/python" />
+              <option name="sdkHomePath" value="$USER_HOME$/opt/anaconda3/envs/end-to-end/bin/python" />
             </JupyterConnectionParameters>
           </value>
         </entry>
